@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-route/angular-route.js"></script>
+    <script src="/ngstorage/ngStorage.js"></script>
+    <script src="main.js"></script>
+    <meta charset="utf-8">
+    <title>Social bot - Automating content marketing</title>
+  </head>
+  <body ng-app='socialBotApp' ng-controller='website'>
+    <div>
+      <select name="httptype" ng-model="websiteData.httpType">
+      <option selected value="http">HTTP</option>
+      <option value="https">HTTPS</option>
+      </select>
+      <input type="website" style="width: 400px;height: 40px;font-size: 18px;" placeholder="Enter your website" ng-model="websiteData.website"><br/>
+      <input type="submit" placeholder="Sign up and move to step 2" ng-click=addWebsite()><br/>
+    </div>
+  </body>
+</html>

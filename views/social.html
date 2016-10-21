@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-route/angular-route.js"></script>
+    <script src="/ngstorage/ngStorage.js"></script>
+    <script src="main.js"></script>
+    <script>token='<%- JSON.stringify(data) %>'</script>
+    <meta charset="utf-8">
+    <title>Social bot - Automating content marketing</title>
+  </head>
+  <body ng-app='socialBotApp' ng-controller='social'>
+    <form name='abc' ng-submit="addSocial()">
+      <a href='/auth/facebook'>Facebook</a><br>
+      <table id='fbpages' >
+      <tr ng-repeat="data in token.pages">
+      <td>{{data.name}}</td>
+      <td>
+      <label>
+      <input type="radio" name="page" ng-model="data.selected" value="{{data.id}}" ng-change="addSocial($index,data.id)">
+      </label></td>
+    </tr>
+    <input type='button' placeholder="Confirm the page" ng-click='confirmPage()'><br>
+  </table>
+      <a href='/auth/twitter'>Twitter</a><br>
+      <input type="submit" placeholder="Let's schedule your post"><br/>
+    </form>
+  </body>
+</html>
